@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: "Tajawal";
+
+    --bg: 222 60% 98%;
+    --fg: 222 60% 8%;
+    --card: 0 0% 100%;
+    --border: 222 18% 86%;
+    --muted: 222 20% 58%;
+
+    --primary: 222 84% 56%;
+    --cyan: 190 95% 50%;
+    --gold: 42 96% 52%;
+  }
+
+  .dark {
+    --bg: 222 28% 6%;
+    --fg: 210 40% 98%;
+    --card: 222 28% 9%;
+    --border: 222 18% 18%;
+    --muted: 222 14% 70%;
+
+    --primary: 200 98% 56%;
+    --cyan: 190 95% 55%;
+    --gold: 42 96% 58%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--bg));
+    color: hsl(var(--fg));
+    font-family: var(--font-sans), system-ui, "Segoe UI", Tahoma, Arial;
+    direction: rtl;
+  }
+
+  ::selection {
+    background: rgba(56, 189, 248, 0.25);
+  }
+}
+
+@layer utilities {
+  .glass {
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(18px);
+  }
+  .dark .glass {
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .soft-grid {
+    background-image:
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(to left, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(ellipse at 40% 20%, black 35%, transparent 70%);
+  }
+}
