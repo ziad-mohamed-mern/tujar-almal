@@ -10,7 +10,6 @@ import {
   ecommerceFeatures,
   partners,
   pricingPlans,
-  services,
   site,
   stats,
   steps,
@@ -27,6 +26,15 @@ function DashboardMock() {
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-white/10 bg-[#0b1c3d]/70 px-3 py-2 text-xs">
+          <div className="font-bold text-gold">تجار المال</div>
+          <div className="flex items-center gap-3 text-foreground/75">
+            <span>الرئيسية</span>
+            <span>المنتجات</span>
+            <span>الطلبات</span>
+            <span>التحليلات</span>
+          </div>
+        </div>
         <div className="flex items-center justify-between gap-3">
           <div className="text-sm font-extrabold">لوحة المتجر</div>
           <div className="flex items-center gap-2">
@@ -141,38 +149,47 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {services.map((s, idx) => (
-              <motion.div
-                key={s.title}
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 220, damping: 18 }}
-              >
-                <Card className="group h-full">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-lg font-black">{s.title}</div>
-                      <p className="mt-2 text-sm leading-7 text-foreground/70">{s.desc}</p>
+          <div dir="ltr" className="grid items-start gap-8 lg:grid-cols-[1.2fr_1fr]">
+            <div>
+              <DashboardMock />
+            </div>
+            <div dir="rtl">
+              <h2 className="text-center text-3xl font-black leading-tight md:text-4xl">
+                تجار المال تطلق متاجرها الإلكترونية
+              </h2>
+              <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+                <Link to="/contact">
+                  <Button variant="gold" size="lg" className="w-full sm:w-auto">
+                    ابدأ مشروعك الآن
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+                    احجز مكالمة
+                  </Button>
+                </Link>
+              </div>
+              <div className="mt-8 grid gap-5 sm:grid-cols-2">
+                {[
+                  "متجر الملابس والأزياء",
+                  "متجر المواد الغذائية",
+                  "متجر المقتنيات الثمينة والنادرة",
+                  "متجر الأجهزة الكهربائية",
+                ].map((title) => (
+                  <Card key={title} className="overflow-hidden border-gold/20 bg-[#091834]/80 p-3 shadow-[0_12px_35px_rgba(245,158,11,0.12)]">
+                    <div className="overflow-hidden rounded-2xl border border-gold/25 bg-[#0a1d43]">
+                      <img
+                        src="/logo-tujar-almal.png"
+                        alt={title}
+                        className="h-56 w-full object-cover saturate-110"
+                        loading="lazy"
+                      />
                     </div>
-                    <div className="h-10 w-10 rounded-2xl bg-white/10" aria-hidden="true" />
-                  </div>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {s.chips.map((c) => (
-                      <span key={c} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold">
-                        {c}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-6">
-                    <Link to={s.href}>
-                      <Button variant={idx === 0 ? "primary" : "secondary"} className="w-full">
-                        اعرف التفاصيل
-                      </Button>
-                    </Link>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+                    <div className="pt-3 text-center text-sm font-black text-gold">{title}</div>
+                  </Card>
+                ))}
+              </div>
+            </div>
           </div>
         </Reveal>
       </section>
