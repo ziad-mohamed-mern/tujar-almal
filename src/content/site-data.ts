@@ -28,19 +28,19 @@ export const storesData = [
     id: "fashion",
     title: "متجر الملابس والازياء",
     desc: "أحدث صيحات الموضة والأزياء الراقية التي تناسب جميع الأذواق والمناسبات.",
-    image: "/fashion_store.png",
+    image: "/clothes.jpg",
   },
   {
     id: "food",
     title: "متجر المواد الغذائية",
     desc: "أجود أنواع المواد الغذائية الطازجة والمعلبة لتلبية كافة احتياجاتك اليومية.",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1000",
+    image: "/food.jpg",
   },
   {
     id: "collectibles",
     title: "متجر المقتنيات الثمينه والنادرة",
     desc: "تشكيلة فريدة من المقتنيات الثمينة والتحف النادرة لعشاق التميز والأصالة.",
-    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=1000",
+    image: "/collectibles.jpg",
   },
   {
     id: "electronics",
